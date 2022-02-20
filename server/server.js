@@ -1,23 +1,17 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+const express = require("express");
+const connectDB = require("./config/db");
+const colors = require("colors");
 
-require('dotenv').config();
+require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+app.use(express.json()); // To accept json data
 
-app.use(cors());
-app.use(express.json());
+connectDB(); //connects to the db
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true}
-);
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log("MongoDB database connection established successfully");
-})
-
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+app.get("/", (req, res) => {
+  res.send("You just hitted the API");
 });
+const PORT = process.env.PORT || 5001;
+
+app.listen(PORT, console.log(`My app is running ${PORT}`.yellow.bold));
