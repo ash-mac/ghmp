@@ -54,6 +54,15 @@
 .footer a:hover {
   color: white;
 }
+.loader {
+  text-align: center;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
 
 .cardRow {
   /* max-width: 300px; */
