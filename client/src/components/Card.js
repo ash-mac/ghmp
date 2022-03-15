@@ -1,6 +1,6 @@
 import React from 'react'
 import './Card.css'
-function Card({ title, imageUrl, body }) {
+function Card({ title, imageUrl, body, redirect }) {
     return (
         <div className='card-container'>
             <div className='image-container'>
@@ -16,7 +16,7 @@ function Card({ title, imageUrl, body }) {
                     </div>
                     <div className="btn">
                         <button>
-                            View More
+                            <a href={redirect}>View More</a>
                         </button>
                     </div>
                 </center>

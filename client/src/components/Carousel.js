@@ -45,15 +45,21 @@ export const
           <Card
             title='Events'
             imageUrl='.\calendar.png'
-            body='Alumni Meets, Research Conferences, Fests, find all upcoming events here.' />
-          <Card
-            title='Meetings'
-            imageUrl='.\conference.png'
-            body='Meeting Room Bookings. Book a conference room for upcoming meets' />
+            body='Alumni Meets, Research Conferences, Fests, find all upcoming events here.'
+            redirect='.\'
+          />
           <Card
             title='Guest Rooms'
             imageUrl='.\building.png'
-            body='A researcher, alumni or a parent, book rooms for all your needs here' />
+            body='A researcher, alumni or a parent, book rooms for all your needs here'
+            redirect='.\GuestForm'
+          />
+          <Card
+            title='Dining'
+            imageUrl='.\restaurant.png'
+            body='One cannot think well, sleep well, if one has not dined well.Your culinary needs,here'
+            redirect='.\'
+          />
         </div>
       </>
 

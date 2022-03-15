@@ -3,9 +3,11 @@ import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { Carousel } from './components/Carousel';
 import { Login } from './components/Login';
+
 // import Card from './components/Card';
 // import { CardRow } from './components/CardRow';
 // import { Map } from './components/Map';
+import { GuestForm } from './components/GuestForm'
 
 import {
   BrowserRouter as Router,
@@ -24,6 +26,8 @@ function App() {
           <Route path="/Login" element={<Login />}>
           </Route>
           <Route path="/" element={<Carousel />}>
+          </Route>
+          <Route path="/GuestForm" element={<GuestForm />}>
           </Route>
         </Routes>
 

@@ -19,7 +19,7 @@ export const Navbar = () => {
                                     Logins
                                 </Link>
                                 <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                    <li><Link className="dropdown-item" to="/Login">IIT User Login</Link></li>
+                                    <li><Link className="dropdown-item" to="/GuestForm">IIT User Login</Link></li>
                                     <li><a className="dropdown-item" href="/Login">IIT User Login without Routing</a></li>
                                     <li><Link className="dropdown-item" to="/">Guest Login</Link></li>
                                     <li><Link className="dropdown-item" to="/">Admin</Link></li>
@@ -31,7 +31,7 @@ export const Navbar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">Accommodation</Link>
+                                <Link className="nav-link" to="./GuestForm">Accommodation</Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
