@@ -37,7 +37,7 @@ export const Navbar = () => {
                                 <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Dining
                                 </Link>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                                     <li><Link className="dropdown-item" to="/">Guest House Kitchen</Link></li>
                                     <li><Link className="dropdown-item" to="/">Main Cafeteria</Link></li>
                                     <li><Link className="dropdown-item" to="/">Outside IIT</Link></li>
