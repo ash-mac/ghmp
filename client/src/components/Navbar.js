@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export const Navbar = () => {
     return (
         <div>
-            <nav className="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
+            <nav className="navbar navbar-light navbar-expand-lg bg-light fixed-top">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
                         <img src=".\iitLogo.jpg" alt="iit" width="40" height="34" className="d-inline-block align-text-top" />

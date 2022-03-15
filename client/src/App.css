@@ -36,11 +36,7 @@
     transform: rotate(360deg);
   }
 }
-.carousel {
-  height: 50%;
-  width: 80%;
-  margin: auto auto 0 auto;
-}
+
 .footer {
   background: #e9dac1;
   padding: 10px 0;
@@ -58,6 +54,20 @@
 .footer a:hover {
   color: white;
 }
+
+.cardRow {
+  /* max-width: 300px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* flex-wrap: wrap; */
+}
+/* .location {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 1000px;
+  height: 1000px;
+} */
 /* .bgg{
 
 } */
