@@ -4,8 +4,10 @@ const res = require("express/lib/response");
 const generateToken = require("../config/generateToken");
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.MAIL_KEY);
+const { errorHandler } = require("../helpers/dbErrorHandling");
+
 const registerUser = expressAsyncHandler(async (req, res) => {
-  const { name, email, password, pic } = req.body;
+  const { name, email, password } = req.body;
   if (!name || !email || !password) {
     res.status(400);
     throw new Error("Please enter all the fields");
@@ -27,7 +29,6 @@ const registerUser = expressAsyncHandler(async (req, res) => {
     name,
     email,
     password,
-    pic,
   });
   if (user) {
     // res.status(201).json({
@@ -41,7 +42,7 @@ const registerUser = expressAsyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Failed to create the user");
   }
-  const token= generateToken(user._id);
+  const token = generateToken(user._id);
   const emailData = {
     from: process.env.EMAIL_FROM,
     to: email,
@@ -54,6 +55,21 @@ const registerUser = expressAsyncHandler(async (req, res) => {
               <p>${process.env.CLIENT_URL}</p>
           `,
   };
+  console.log(process.env.EMAIL_FROM);
+  console.log(emailData);
+  sgMail
+    .send(emailData)
+    .then((sent) => {
+      return res.json({
+        message: `Email has been sent to ${email}`,
+      });
+    })
+    .catch((err) => {
+      return res.status(400).json({
+        success: false,
+        errors: errorHandler(err),
+      });
+    });
 });
 const authUser = expressAsyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -63,7 +79,6 @@ const authUser = expressAsyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      pic: user.pic,
       token: generateToken(user._id),
     });
   } else {
@@ -72,16 +87,5 @@ const authUser = expressAsyncHandler(async (req, res) => {
   }
 });
 // /api/user?search=apple
-const allUsers = expressAsyncHandler(async (req, res) => {
-  const keyword = req.query.search
-    ? {
-        $or: [
-          { name: { $regex: req.query.search, $options: "i" } },
-          { email: { $regex: req.query.search, $options: "i" } },
-        ],
-      }
-    : {};
-  const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
-  res.send(users);
-});
-module.exports = { registerUser, authUser, allUsers };
+
+module.exports = { registerUser, authUser };
