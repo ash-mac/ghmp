@@ -1,0 +1,45 @@
+.banner {
+  background: powderblue center center;
+  height: 50 vh;
+  position: relative;
+}
+
+.banner_info {
+  background-color: black;
+  color: white;
+  padding-top: 25vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  width: 300px;
+}
+
+.banner_info > Button {
+  background-color: red;
+  color: white;
+  text-transform: inherit;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.banner_info > Button:hover {
+  background-color: white;
+  color: red;
+}
+
+.banner_info > h5 {
+  margin-top: 10px;
+}
+
+.banner_search {
+  /* background-color: white; */
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+}
+.banner_searchButton {
+  background-color: white !important;
+  font-weight: 900 !important;
+  text-transform: inherit !important;
+  color: red !important;
+}
