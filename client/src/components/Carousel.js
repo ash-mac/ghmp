@@ -1,10 +1,14 @@
 import React from 'react';
 import './Carousel.css';
 import Card from './Card';
+// import Banner from './Banner';
+// import './Banner.css'
 export const
   Carousel = () => {
     return (
       <>
+        {/* <Banner></Banner> */}
+        {/* <Banner /> */}
         <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>

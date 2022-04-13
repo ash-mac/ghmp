@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name":"Raman",
+        "bookedOn": "01/01/2022",
+        "arrivalDate": "01/05/2022",
+        "payment": "pending",
+        "category": "a"
+    },
+    {
+        "id": 41,
+        "name":"Ravi",
+        "bookedOn": "01/10/2022",
+        "arrivalDate": "01/05/2022",
+        "payment": "pending",
+        "category": "c"
+    },
+    {
+        "id": 11,
+        "name":"Shyam",
+        "bookedOn": "01/11/2022",
+        "arrivalDate": "01/05/2022",
+        "payment": "pending",
+        "category": "b"
+    },
+    {
+        "id": 31,
+        "name":"Karan",
+        "bookedOn": "11/01/2022",
+        "arrivalDate": "01/05/2022",
+        "payment": "pending",
+        "category": "c"
+    }
+]
