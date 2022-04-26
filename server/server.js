@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 require("dotenv").config();
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const userRoutes = require("./routes/userRoutes");
 
@@ -26,7 +27,8 @@ app.get("/", (req, res) => {
   res.send("You just hitted the API");
 });
 app.use("/api/user", userRoutes);
-
+app.use(notFound);
+app.use(errorHandler);
 const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, console.log(`My app is running ${PORT}`.yellow.bold));
