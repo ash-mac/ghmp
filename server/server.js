@@ -9,6 +9,7 @@ require("dotenv").config();
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const userRoutes = require("./routes/userRoutes");
+const roomRoutes = require("./routes/roomRoutes");
 
 const app = express();
 app.use(express.json()); // To accept json data
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
   res.send("You just hitted the API");
 });
 app.use("/api/user", userRoutes);
+app.use("/api/room",roomRoutes);
 app.use(notFound);
 app.use(errorHandler);
 const PORT = process.env.PORT || 5001;
