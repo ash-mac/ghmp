@@ -2,20 +2,17 @@ const expressAsyncHandler = require("express-async-handler");
 const User = require("../Models/userModel");
 const res = require("express/lib/response");
 const generateToken = require("../config/generateToken");
+const Booking = require("../models/bookingModel");
 
 const registerUser = expressAsyncHandler(async (req, res) => {
-  console.log("this is my domain");
   const { name, email, password, pic } = req.body;
   if (!name || !email || !password) {
     res.status(400);
     throw new Error("Please enter all the fields");
   }
   //iitrpr.ac.in
-  console.log(req);
   const domain = email.substring(email.length - 12);
-  // console.log(domain);
   if (domain !== "iitrpr.ac.in") {
-    console.log("it doesnot match");
     res.status(400);
     throw new Error("Only people belonging to IIT Ropar can register");
   }
@@ -73,4 +70,22 @@ const allUsers = expressAsyncHandler(async (req, res) => {
   const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
   res.send(users);
 });
-module.exports = { registerUser, authUser, allUsers };
+const Profile = expressAsyncHandler(async (req, res) => {
+  const user = req.user;
+  const {  history } = user;
+  let bookings = [];
+  //guestName roomsBooked arrivalTime departureTime cancel
+  for (let bookingId of history) {
+    let booking = await Booking.findById(bookingId, {
+      guestName: 1,
+      roomsBooked: 1,
+      arrivalTime: 1,
+      departureTime: 1,
+      cancel: 1,
+      _id: 0,
+    });
+    bookings.push(booking);
+  }
+  res.status(201).json(bookings);
+});
+module.exports = { registerUser, authUser, allUsers, Profile };
