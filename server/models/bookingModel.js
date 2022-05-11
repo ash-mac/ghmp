@@ -32,12 +32,16 @@ const bookingSchema = mongoose.Schema({
   category:{
       type:String,
       required:true
+    },
+    status: {
+        type: String,
+        required: true,
+        default:"requested"
   },
   cancel:{
       type:Boolean,
       default:false
   }
 });
-
 const Booking = mongoose.model("Booking", bookingSchema);
 module.exports = Booking;
