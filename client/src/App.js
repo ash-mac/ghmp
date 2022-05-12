@@ -11,6 +11,7 @@ import UserProfile from './components/UserProfile';
 // import { CardRow } from './components/CardRow';
 // import { Map } from './components/Map';
 import { GuestForm } from './components/GuestForm'
+import { Book } from './components/Book'
 import BounceLoader from "react-spinners/BounceLoader";
 import HomePage from "./Pages/HomePage";
 import {
@@ -18,6 +19,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import FillDetails from './components/FillDetails';
 
 
 function App() {
@@ -52,7 +54,11 @@ function App() {
               </Route>
               <Route path="/GuestForm" element={<GuestForm />}>
               </Route>
+              <Route path="/Book" element={<Book />}>
+              </Route>
               <Route path="/Contact" element={<Contact />}>
+              </Route>
+              <Route path="/FillDetails" element={<FillDetails />}>
               </Route>
             </Routes>
 

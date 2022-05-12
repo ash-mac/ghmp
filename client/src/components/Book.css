@@ -1,0 +1,41 @@
+.book {
+  margin: 40px auto;
+}
+
+.book h3 {
+  font-size: xx-large;
+  text-align: center;
+}
+
+
+.form{
+  background-color:rgb(193, 252, 232);
+  border-radius: 5px;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  padding: 20px;
+  /* height: 600px; */
+}
+
+.form-body{
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.form__label{
+  font-size: medium;
+  width: 40%;
+}
+
+.form_input{
+  border-color: gray;
+  font-size: medium;
+  width: 20%;
+}
+
+.form-submit{
+  text-align: center;
+}
