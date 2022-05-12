@@ -1,11 +1,16 @@
 const express = require("express");
+const {
+  bookRoom,
+  checkAvailability,createRoom,
+} = require("../controllers/roomControllers");
+const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// router.route("/").post(protect, accessChat);
-// router.route("/").get(protect, fetchRooms);
-// router.route("/group").post(protect, bookRoom);
-// router.route("/rename").put(protect, cancelRoomBooking);
-// router.route("/").put(protect, removeFromGroup);
-// router.route("/").put(protect, addToGroup);
+router.route("/bookRoom").post(protect, bookRoom);
+router.route("/checkRoom").get(protect, checkAvailability);
+//Create diffrent protection for admin
+// router.route("/createRoom").post(protect, createRoom);
+
+
 module.exports = router;

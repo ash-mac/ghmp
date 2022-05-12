@@ -9,7 +9,7 @@ const connectDB = async () => {
 
     console.log(`MongoDB connected ${conn.connection.host}`.cyan.underline);
   } catch (error) {
-    console.log(require('dotenv').config())
+    // console.log(require('dotenv').config())
     console.log(`Error is ${error.message}`.red.bold);
     process.exit();
   }

@@ -2,8 +2,11 @@ const mongoose = require("mongoose");
 
 const roomSchema = mongoose.Schema({
   roomId: { type: String, required: true, unique: true },
-  roomType: { type: String, required: true },
-  isBooked: { type: Boolean, required: true },
+  type: { type: String, required: true },
+  bookedSlots: {
+    type: Array,
+    default: [],
+  },
   picture: {
     type: String,
 
@@ -11,4 +14,6 @@ const roomSchema = mongoose.Schema({
       "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
   },
 });
-const User = mongoose.model("User", userSchema);
+
+const Room = mongoose.model("Room", roomSchema);
+module.exports = Room;
