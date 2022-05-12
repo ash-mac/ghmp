@@ -53,7 +53,7 @@ const Login = () => {
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      navigate("/dashboard");
+      navigate("/Admindashboard");
     } catch (error) {
       console.log(error);
       // console.log("Hii guys")
@@ -69,7 +69,7 @@ const Login = () => {
     }
   };
   return (
-    <VStack spacing="5px">
+    <VStack spacing="10px">
       <FormControl id="email" isRequired>
         <FormLabel>Email address</FormLabel>
         <Input
