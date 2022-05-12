@@ -33,15 +33,15 @@ const Login = () => {
       return;
     }
     try {
-      console.log("keshav");
       const config = {
         headers: {
           "Content-type": "application/json",
         },
       };
+      // console.log({ email, password });
       const { data } = await axios.post(
-        "/api/user/login",
-        { email, password },
+        "http://localhost:5001/api/user/login",
+        JSON.stringify({ email: email, password: password }),
         config,
       );
       toast({
@@ -53,7 +53,7 @@ const Login = () => {
       });
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      navigate("/UserProfile");
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
       // console.log("Hii guys")
