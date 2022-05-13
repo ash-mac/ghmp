@@ -3,7 +3,7 @@ import React from 'react'
 export const Footer = () => {
     let footerStyle = {
         position: "relative",
-        top: "auto",
+        top: "100vh",
         bottom: "0%",
         width: "100%",
         margin: "20px 0px 0px 0px"
