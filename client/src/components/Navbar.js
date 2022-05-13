@@ -1,6 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 export const Navbar = () => {
+    const handleLogout = () => {
+        if (localStorage.getItem("userToken")) {
+            localStorage.removeItem("userToken");
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userEmail");
+            window.location = "./Login";
+        }
+        else {
+            window.location.reload(false);
+        }
+    }
+    // const [msg, setMsg] = useState(false);
     return (
         <div>
             <nav className="navbar navbar-light navbar-expand-lg bg-light">
@@ -55,9 +68,26 @@ export const Navbar = () => {
                                 <Link className="nav-link" to="./Contact">Contact</Link>
                             </li>
                         </ul>
+                        {
+
+                            localStorage.getItem("userToken") ?
+
+                                <span span class="navbar-text">
+                                    Hello &nbsp; {localStorage.getItem("userName").slice(1, -1)} &nbsp;
+                                </span>
+                                :
+                                <span class="navbar-text">
+
+                                </span>
+                        }
+                        <form className="form-inline my-2 my-lg-0">
+                            <Link to='/Login'>
+                                <button type="button" className="btn btn-info  btn-lg" onClick={handleLogout}>{localStorage.getItem('userToken') ? 'Log Out' : 'Log In'}</button>
+                            </Link>
+                        </form>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </nav >
+        </div >
     )
 }

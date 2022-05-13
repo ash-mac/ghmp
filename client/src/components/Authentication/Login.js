@@ -18,6 +18,7 @@ const Login = () => {
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState();
   const handleClick = () => {
+    // window.location.reload(false);
     setShow(!show);
   };
   const submitHandler = async () => {
@@ -44,6 +45,7 @@ const Login = () => {
         JSON.stringify({ email: email, password: password }),
         config,
       );
+      // console.log(JSON.stringify(data));
       toast({
         title: "Login is Sucessful",
         status: "success",
@@ -51,7 +53,11 @@ const Login = () => {
         isClosable: true,
         position: "top",
       });
-      localStorage.setItem("userInfo", JSON.stringify(data));
+      localStorage.setItem("userEmail", JSON.stringify(data['email']));
+      localStorage.setItem("userToken", JSON.stringify(data['token']));
+      localStorage.setItem("userName", JSON.stringify(data['name']));
+      localStorage.setItem("userID", JSON.stringify(data["_id"]));
+      localStorage.setItem("fullData", JSON.stringify(data));
       setLoading(false);
       navigate("/dashboard");
     } catch (error) {
@@ -90,7 +96,7 @@ const Login = () => {
               setPassword(e.target.value);
             }}
           />
-          <InputRightElement widht="4.5rem">
+          <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
               {show ? "Hide" : "Show"}
             </Button>
