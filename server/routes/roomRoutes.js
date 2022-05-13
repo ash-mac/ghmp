@@ -11,6 +11,7 @@ const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
+router.route("/bookRoom").post(bookRoom);
 router.route("/bookRoom").post(protect, bookRoom);
 router.route("/checkRoom").get( checkAvailability);
 router.route("/checkRoom").get(protect, checkAvailability);
