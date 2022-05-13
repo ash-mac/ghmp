@@ -14,11 +14,11 @@ import { GuestForm } from './components/GuestForm'
 import BounceLoader from "react-spinners/BounceLoader";
 import Dashboard from './components/Dashboard';
 import HomePage from "./Pages/HomePage";
+import Book from './components/Book';
 import FillDetails from './components/FillDetails';
 
 import AdminLogin from "./Pages/AdminLogin";
 import AdminDashboard from "./Pages/AdminDashboard";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Login from './components/Authentication/Login';
 import {
   BrowserRouter as Router,
