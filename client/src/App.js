@@ -14,6 +14,11 @@ import { GuestForm } from './components/GuestForm'
 import BounceLoader from "react-spinners/BounceLoader";
 import Dashboard from './components/Dashboard';
 import HomePage from "./Pages/HomePage";
+import FillDetails from './components/FillDetails';
+
+import AdminLogin from "./Pages/AdminLogin";
+import AdminDashboard from "./Pages/AdminDashboard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Login from './components/Authentication/Login';
 import {
   BrowserRouter as Router,
@@ -47,18 +52,18 @@ function App() {
           <Router>
             <Navbar />
             <Routes>
-              <Route path="/Dashboard" element={<Dashboard />}>
-              </Route>
-              <Route path="/UserProfile" element={<UserProfile />}>
-              </Route>
-              <Route path="/Login" element={<HomePage />}>
-              </Route>
-              <Route path="/" element={<Carousel />}>
-              </Route>
-              <Route path="/GuestForm" element={<GuestForm />}>
-              </Route>
-              <Route path="/Contact" element={<Contact />}>
-              </Route>
+              <Route path="/" element={<Carousel />}></Route>
+              <Route path="/Dashboard" element={<Dashboard />}></Route>
+              <Route path="/UserProfile" element={<UserProfile />}></Route>
+              <Route path="/Login" element={<HomePage />}></Route>
+              <Route path="/AdminLogin" element={<AdminLogin />}></Route>
+              <Route path="/GuestForm" element={<GuestForm />}></Route>
+              <Route path="/Book" element={<Book />}></Route>
+              <Route path="/Contact" element={<Contact />}></Route>
+              <Route path="/FillDetails" element={<FillDetails />}></Route>
+              <Route path="/Admindashboard" element={<AdminDashboard />}></Route>
+              <Route path="/GuestForm" element={<GuestForm />}></Route>
+              <Route path="/Contact" element={<Contact />}></Route>
             </Routes>
 
             {/* <div className="map">

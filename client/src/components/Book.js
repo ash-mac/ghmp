@@ -25,8 +25,11 @@ export const Book = () => {
   useEffect(() => {
     axios.get('http://localhost:5001/api/room/checkRoom', { arrivalTime: arrivalTime, departureTime: departureTime})
       .then(response => { 
+        //console.log(response.data.singleRoom)
         setSingleRoomAvail(response.data.singleRoom);
         setDoubleRoomAvail(response.data.doubleRoom);
+        //console.log(singleRoomAvail)
+        //console.log(doubleRoomAvail)
       })
       .catch(err => console.log(err));
   })
@@ -51,8 +54,13 @@ export const Book = () => {
     e.preventDefault();
     setIsSubmit(true);
     if (singleRoomAvail >= singleRoom && doubleRoomAvail >= doubleRoom) {
+      console.log('hi');
+      console.log(singleRoomAvail)
+      console.log(doubleRoomAvail)
+      console.log(singleRoom)
+      console.log(doubleRoom)
       setIsAvailable(true);
-      navigate('./FillDetails');
+      navigate('../FillDetails',{ arrivalTime: arrivalTime, departureTime: departureTime, singleRoom: singleRoom, doubleRoom: doubleRoom });
     }
     else {
       setIsAvailable(false);
@@ -67,6 +75,7 @@ export const Book = () => {
           <div className="arrivaldate">
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <KeyboardDatePicker
+                required
                 label="Arrival Date"
                 format="dd/MM/yyyy"
                 value={arrivalTime}
@@ -77,6 +86,7 @@ export const Book = () => {
           <div className="departuredate">
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <KeyboardDatePicker
+                required
                 label="Departure Date"
                 format="dd/MM/yyyy"
                 value={departureTime}
@@ -87,6 +97,7 @@ export const Book = () => {
           <div className='singleroom'>
             <label className="form__label" for="singleRoom">Single Rooms</label>
             <input 
+              required
               className="form__input" 
               type="number" 
               value={singleRoom} 
@@ -96,6 +107,7 @@ export const Book = () => {
           <div className='doubleroom'>
             <label className="form__label" for="doubleRoom">Double Rooms</label>
             <input 
+              required
               className="form__input" 
               type="number" 
               value={doubleRoom} 
