@@ -12,12 +12,14 @@ import UserProfile from './components/UserProfile';
 // import { Map } from './components/Map';
 import { GuestForm } from './components/GuestForm'
 import BounceLoader from "react-spinners/BounceLoader";
+import Dashboard from './components/Dashboard';
 import HomePage from "./Pages/HomePage";
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+// import { Dashboard } from './components/Dashboard';
 
 
 function App() {
@@ -44,6 +46,8 @@ function App() {
           <Router>
             <Navbar />
             <Routes>
+              <Route path="/Dashboard" element={<Dashboard />}>
+              </Route>
               <Route path="/UserProfile" element={<UserProfile />}>
               </Route>
               <Route path="/Login" element={<HomePage />}>
