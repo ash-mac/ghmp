@@ -19,10 +19,22 @@ export const Navbar = () => {
                                     Logins
                                 </Link>
                                 <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
                                     <li><Link className="dropdown-item" to="/Login">User Login</Link></li>
                                     {/* <li><a className="dropdown-item" href="/GuestForm">GuestForm without Routing</a></li> */}
                                     {/* <li><Link className="dropdown-item" to="/">Guest Login</Link></li> */}
                                     <li><Link className="dropdown-item" to="/">Admin Login</Link></li>
+||||||| 568c1df
+                                    <li><Link className="dropdown-item" to="/Login">IIT User Login</Link></li>
+                                    <li><a className="dropdown-item" href="/GuestForm">GuestForm without Routing</a></li>
+                                    <li><Link className="dropdown-item" to="/">Guest Login</Link></li>
+                                    <li><Link className="dropdown-item" to="/">Admin</Link></li>
+=======
+                                    <li><Link className="dropdown-item" to="/Login">IIT User Login</Link></li>
+                                    <li><a className="dropdown-item" href="/GuestForm">GuestForm without Routing</a></li>
+                                    <li><Link className="dropdown-item" to="/">Guest Login</Link></li>
+                                    <li><Link className="dropdown-item" to="/AdminLogin">Admin</Link></li>
+>>>>>>> 61dd6a55e506bfc53b10b0865c90a1f668b059de
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><Link className="dropdown-item" to="/">Other Options</Link></li>
                                 </ul>
@@ -31,7 +43,7 @@ export const Navbar = () => {
                                 <Link className="nav-link" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="./GuestForm">Accommodation</Link>
+                                <Link className="nav-link" to="./Book">Accommodation</Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
