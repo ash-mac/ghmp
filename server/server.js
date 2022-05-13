@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   res.send("You just hitted the API");
 });
 app.use("/api/user", userRoutes);
-app.use("/api/room",roomRoutes);
+app.use("/api/room", roomRoutes);
 app.use(notFound);
 app.use(errorHandler);
 const PORT = process.env.PORT || 5001;
