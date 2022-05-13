@@ -137,26 +137,61 @@ const bookRoom = expressAsyncHandler(async (req, res) => {
 });
 
 const removeSlotsFromRoom = async (roomId, arrivalTime, departureTime) => {
-  const room = await Room.find({ roomId });
+  const room = await Room.findOne({ roomId });
+  // console.log(room);
+  // console.log("Hii");
   for (let i = 0; i < room.bookedSlots.length; i++) {
-    const slot = room[i];
+    const slot = room.bookedSlots[i];
+
     if (
       Date(slot.arrivalTime) === Date(arrivalTime) &&
       Date(slot.departureTime) === Date(departureTime)
     ) {
+      console.log(slot);
+
       room.bookedSlots.slice(i, 1);
-      return;
     }
   }
   await room.save();
 };
+const availableRequest = expressAsyncHandler(async (req, res) => {
+  const bookings = await Booking.find({});
+  const request = [];
+  for (let i = 0; i < bookings.length; i++) {
+    const booking = bookings[i];
 
-const cancelBooking = expressAsyncHandler(async (req, res) => {
+    if (booking.status === "requested") {
+      request.push(booking);
+    }
+  }
+  res.status(201).json(request);
+});
+
+const acceptRequest = expressAsyncHandler(async (req, res) => {
   const { _id } = req.body;
   const booking = await Booking.findOne({ _id });
   if (!booking) {
     throw new Error("No such booking found");
   }
+  booking.status = "accepted";
+  // add logic for booking the room
+  await booking.save();
+  res.status(200).json({ message: "Successfully booked" });
+});
+const cancelBooking = expressAsyncHandler(async (req, res) => {
+  const { _id } = req.body;
+  // console.log(_id);
+  const booking = await Booking.findOne({ _id });
+  // console.log(booking);
+  if (booking.status === "cancelled") {
+    throw new Error("Booking is alredy cancelled");
+  }
+  if (!booking) {
+    throw new Error("No such booking found");
+  }
+  booking.status = "cancelled";
+  booking.cancel = true;
+
   booking.cancelled = true;
   await booking.save();
 
@@ -169,6 +204,7 @@ const cancelBooking = expressAsyncHandler(async (req, res) => {
   });
   res.status(200).json({ message: "Successfully cancelled" });
 });
+
 const createRoom = expressAsyncHandler(async (req, res) => {
   let { roomId, type } = req.body;
   type = type.toLowerCase();
@@ -187,4 +223,11 @@ const createRoom = expressAsyncHandler(async (req, res) => {
   // const roomExist=await Room.find
   res.status(201).json({ message: "sucess" });
 });
-module.exports = { bookRoom, checkAvailability, createRoom };
+module.exports = {
+  bookRoom,
+  checkAvailability,
+  createRoom,
+  cancelBooking,
+  acceptRequest,
+  availableRequest,
+};

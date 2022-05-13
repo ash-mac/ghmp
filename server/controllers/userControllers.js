@@ -72,7 +72,7 @@ const allUsers = expressAsyncHandler(async (req, res) => {
 });
 const Profile = expressAsyncHandler(async (req, res) => {
   const user = req.user;
-  const {  history } = user;
+  const { history } = user;
   let bookings = [];
   //guestName roomsBooked arrivalTime departureTime cancel
   for (let bookingId of history) {
