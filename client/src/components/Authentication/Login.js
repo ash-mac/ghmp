@@ -53,13 +53,14 @@ const Login = () => {
         isClosable: true,
         position: "top",
       });
+      console.log(JSON.stringify(data['token']));
       localStorage.setItem("userEmail", JSON.stringify(data['email']));
       localStorage.setItem("userToken", JSON.stringify(data['token']));
       localStorage.setItem("userName", JSON.stringify(data['name']));
       localStorage.setItem("userID", JSON.stringify(data["_id"]));
       localStorage.setItem("fullData", JSON.stringify(data));
       setLoading(false);
-      navigate("/dashboard");
+      navigate("/");
     } catch (error) {
       console.log(error);
       // console.log("Hii guys")

@@ -66,6 +66,7 @@ const bookRoom = expressAsyncHandler(async (req, res) => {
     purpose,
     category,
   } = req.body;
+  console.log(req.body);
 
   const rooms = await Room.find({});
   const singleRooms = [];

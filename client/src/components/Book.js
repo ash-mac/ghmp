@@ -10,6 +10,7 @@ import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import axios from 'axios'
 import { useEffect } from 'react';
+import Userfront from "@userfront/react";
 
 export const Book = () => {
   const [arrivalTime, setArrivalTime] = useState(new Date());
@@ -21,15 +22,18 @@ export const Book = () => {
   const [isAvailable, setIsAvailable] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false)
   const navigate = useNavigate();
+  const token = localStorage.getItem('userToken');
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}` ;
 
   useEffect(() => {
+    console.log(token)
     axios.get('http://localhost:5001/api/room/checkRoom', { arrivalTime: arrivalTime, departureTime: departureTime})
       .then(response => { 
-        //console.log(response.data.singleRoom)
+        console.log('hello')
         setSingleRoomAvail(response.data.singleRoom);
         setDoubleRoomAvail(response.data.doubleRoom);
-        //console.log(singleRoomAvail)
-        //console.log(doubleRoomAvail)
+        console.log(singleRoomAvail)
+        console.log(doubleRoomAvail)
       })
       .catch(err => console.log(err));
   })
@@ -52,6 +56,13 @@ export const Book = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('hi');
+    console.log(singleRoomAvail)
+    console.log(doubleRoomAvail)
+    console.log(singleRoom)
+    console.log(doubleRoom)
+    console.log(arrivalTime)
+    console.log(departureTime)
     setIsSubmit(true);
     if (singleRoomAvail >= singleRoom && doubleRoomAvail >= doubleRoom) {
       console.log('hi');
@@ -59,8 +70,10 @@ export const Book = () => {
       console.log(doubleRoomAvail)
       console.log(singleRoom)
       console.log(doubleRoom)
+      console.log(arrivalTime)
+      console.log(departureTime)
       setIsAvailable(true);
-      navigate('../FillDetails',{ arrivalTime: arrivalTime, departureTime: departureTime, singleRoom: singleRoom, doubleRoom: doubleRoom });
+      navigate('../FillDetails',{state:{arrivalTime: arrivalTime, departureTime: departureTime, singleRoom: singleRoom, doubleRoom: doubleRoom }});
     }
     else {
       setIsAvailable(false);

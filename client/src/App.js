@@ -19,7 +19,7 @@ import FillDetails from './components/FillDetails';
 
 import AdminLogin from "./Pages/AdminLogin";
 import AdminDashboard from "./Pages/AdminDashboard";
-// import Login from './components/Authentication/Login';
+//import Login from './components/Authentication/Login';
 import {
   BrowserRouter as Router,
   Routes,
@@ -49,14 +49,14 @@ function App() {
           </div>
 
           :
-          <Router>
+          <div>
             <Navbar />
             <Routes>
-              <Route path="/" element={<Carousel />}></Route>
               <Route path="/Dashboard" element={<Dashboard />}></Route>
               <Route path="/UserProfile" element={<UserProfile />}></Route>
               <Route path="/Login" element={<HomePage />}></Route>
               <Route path="/AdminLogin" element={<AdminLogin />}></Route>
+              <Route path="/" element={<Carousel />}></Route>
               <Route path="/GuestForm" element={<GuestForm />}></Route>
               <Route path="/Book" element={<Book />}></Route>
               <Route path="/Contact" element={<Contact />}></Route>
@@ -64,13 +64,14 @@ function App() {
               <Route path="/Admindashboard" element={<AdminDashboard />}></Route>
               <Route path="/GuestForm" element={<GuestForm />}></Route>
               <Route path="/Contact" element={<Contact />}></Route>
+              <Route path="/AdminLogin" element={<AdminLogin />}></Route>
             </Routes>
 
             {/* <div className="map">
           <Map />
         </div> */}
             < Footer />
-          </Router >
+          </div >
       }
 
     </>

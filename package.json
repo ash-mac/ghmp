@@ -5,6 +5,8 @@
     "@material-ui/pickers": "^3.3.10",
     "@mui/lab": "^5.0.0-alpha.81",
     "@mui/material": "^5.7.0",
+    "@reduxjs/toolkit": "^1.8.1",
+    "@userfront/react": "^0.2.22",
     "date-fns": "^2.28.0",
     "datepicker": "^0.0.0",
     "react-datepicker": "^4.7.0"

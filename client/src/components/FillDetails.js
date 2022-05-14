@@ -13,16 +13,28 @@ export const FillDetails = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const token = localStorage.getItem('userToken');
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  console.log(guestName);
+  console.log(address);
+  console.log(numberOfGuests);
+  console.log(location.state.arrivalTime);
+  console.log(location.state.departureTime);
+  console.log(location.state.singleRoom);
+  console.log(location.state.doubleRoom);
+  console.log(purpose);
+  console.log(category);
 
   const handleSubmit = (e) => {
+    
     axios.post('http://localhost:5001/api/room/bookRoom', {
     guestName: guestName,
     address: address,
     numberOfGuests: numberOfGuests,
-    arrivalTime: location.arrivalTime,
-    departureTime: location.departureTime,
-    singleRoom: location.singleRoom,
-    doubleRoom: location.doubleRoom,
+    arrivalTime: location.state.arrivalTime,
+    departureTime: location.state.departureTime,
+    singleRoom: location.state.singleRoom,
+    doubleRoom: location.state.doubleRoom,
     purpose: purpose,
     category: category})
     .then(response => {
@@ -35,7 +47,7 @@ export const FillDetails = () => {
   return(
     <div className='filldetails'>
       <h3>Fill in the details</h3>
-      <form onSubmit={handleSubmit} className='form'>
+      <form className='form'>
         <div className='form-body'>
           <div className='guestname'>
             <label className="form__label" for="guestName">Guest Name</label>
@@ -88,7 +100,7 @@ export const FillDetails = () => {
             </select>
           </div>
           <div className="form-submit">
-            <input type="submit" value="Book the room" className="btn btn-primary" />
+            <input type="button" value="Book the room" className="btn btn-primary" onClick={handleSubmit}/>
           </div>
         </div>
       </form>

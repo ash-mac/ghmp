@@ -35,7 +35,7 @@ export const Navbar = () => {
                                     <li><Link className="dropdown-item" to="/Login">User Login</Link></li>
                                     {/* <li><a className="dropdown-item" href="/GuestForm">GuestForm without Routing</a></li> */}
                                     {/* <li><Link className="dropdown-item" to="/">Guest Login</Link></li> */}
-                                    <li><Link className="dropdown-item" to="/">Admin Login</Link></li>
+                                    <li><Link className="dropdown-item" to="/AdminLogin">Admin Login</Link></li>
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><Link className="dropdown-item" to="/">Other Options</Link></li>
                                 </ul>

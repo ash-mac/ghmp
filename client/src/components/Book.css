@@ -7,6 +7,16 @@
   text-align: center;
 }
 
+.filldetails {
+  margin: 40px auto;
+}
+
+.filldetails h3 {
+  font-size: xx-large;
+  text-align: center;
+}
+
+
 
 .form{
   background-color:rgb(193, 252, 232);
